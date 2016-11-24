@@ -1,0 +1,7 @@
+*{ margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;}
+button{}
+.menu{ width: 200px; background-color: #ccc; transition: all 0.5s ease; position: absolute; top: 0; bottom: 0;}
+.menu h3{text-align: center; background-color: red; color: #fff;padding: 20px; font-size: 28px;}
+.menu li{text-align: center; line-height: 40px; cursor: pointer;}
+.menu li:hover{ color: #212121; background-color: #fff;}
+.bg{ width: 100%; background: rgba(0, 0, 0, 0.6); position: absolute; top: 0; bottom: 0; left: 0; right: 0;}

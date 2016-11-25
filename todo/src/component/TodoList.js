@@ -1,28 +1,26 @@
 import React from 'react';
 
 class TodoList extends React.Component{
-  handleChange(i){
-    this.props.handleCompleted(i)
-  }
-  handleDel(i){
-    this.props.handleDel(i)
+  handleChange(){
+    
   }
   render(){
-    var list = this.props.data.map( (item,i) => (
-      <div key={i}>
-        <input type='radio' checked={item.completed} onChange={this.handleChange.bind(this,i)}/>
-        <span style={item.completed ? {textDecoration:'line-through'} : {textDecoration:'none'}}>{item.title}</span>
-        <button onClick={this.handleDel.bind(this,i)}>删除</button>
-      </div>
-    ) )
-    // console.log(this.props.data);
+
+    let list = this.props.items.map( item =>
+      <div key={Math.random()}>
+         <input type="radio" checked={item.completed} onChange={this.handleChange.bind(this)}/>
+         <span style={item.completed ? {textDecoration:'line-through',opacity:'0.6'} : null}>{item.title}</span>
+         <button>×</button>
+       </div>
+    )
     return(
-      <div>
-        <span>任务数量：{this.props.data.length}</span>
-        {list}
-      </div>
+        <div>
+          {list}
+        </div>
     )
   }
 }
-
+TodoList.propTypes = {
+  items: React.PropTypes.array
+};
 export default TodoList;

@@ -1,71 +1,55 @@
 import React from 'react';
-
-import TodoList from './component/TodoList';
-import TodoControl from './component/TodoControl';
-
+import TodoList from './component/TodoList'
 class App extends React.Component{
   constructor(){
     super();
     this.state={
-      data:[
-        {title:'hello',completed:false},
-        {title:'world',completed:true}
-      ],
-      // 显示的数据，0 All，1 Active，2 Completed
-      show:0
+      items:[
+        {title:'我未完成',completed:false},
+        {title:'我完成了',completed:true}
+      ]
     }
   }
-  handleCompleted(i){
-    let changeComp = !this.state.data[i].completed;
-    this.state.data[i].completed = changeComp;
-    // console.log(changeComp);
-    this.setState({
-      data:this.state.data
-    })
-  }
-  handleDel(i){
-    this.state.data.splice(i,1);
-    this.setState({data:this.state.data});
-    console.log(this.state.data);
-  }
+  // handleClick(){
+  //   let newItem =this.refs.input.value.trim();
+  //   this.refs.input.value=null;
+  //   if (newItem == '' && !newItem) {
+  //     this.refs.input.focus();
+  //     return alert('输入内容不能为空')
+  //   }
+  //   this.state.items.push(newItem)
+  //   this.setState({items:this.state.items})
+  //
+  // }
+
   handleSubmit(e){
     e.preventDefault();
-    let title = this.refs.input.value.trim();
-    this.refs.form.reset();
-    if (!title || title=='') {
-      alert('内容不能为空');
-      return
+    let inputValue =this.refs.input.value.trim();
+    this.refs.input.value=null;
+    if (inputValue == '' && !inputValue) {
+      this.refs.input.focus();
+      return alert('输入内容不能为空')
     }
-    let newData = {title:title,completed:false};
-    this.state.data.unshift(newData);
-    this.setState({data:this.state.data});
-  }
-  handleShow(n){
-    this.setState({show:n})
+    let newItem = {title:inputValue,completed:false}
+    this.state.items.push(newItem)
+    this.setState({items:this.state.items})
+
   }
   render(){
-    // 将需要显示的过滤出来传给 TodoList
-    if (this.state.show==0) {
-      var showData = this.state.data;
-    }else if (this.state.show==1) {
-      var showData = this.state.data.filter( (item) => !item.completed )
-    }else if (this.state.show==2) {
-      var showData = this.state.data.filter( (item) => item.completed )
-    }
-    // console.log(showData);
     return(
-      <div className='main'>
-        <h1 className='title'>Todos</h1>
-        <form onSubmit={this.handleSubmit.bind(this)} ref='form'>
-          <input placeholder='what will you do?' type='text' ref='input' className='add'/>
-        </form>
-        <TodoList data={showData}
-          handleCompleted={this.handleCompleted.bind(this)}
-          handleDel={this.handleDel.bind(this)}/>
-        <TodoControl handleShow={this.handleShow.bind(this)}/>
+      <div>
+          <h3>TODO</h3>
+          <TodoList items={this.state.items}/>
+          {/* <input type="text" placeholder="add a todo" ref="input" />
+          <button onClick={this.handleClick.bind(this)}>Add #{this.state.items.length+1}</button> */}
+
+
+          <form onSubmit={this.handleSubmit.bind(this)}>
+            <input type="text" placeholder="add a todo" ref="input" />
+            <button>Add #{this.state.items.length+1}</button>
+          </form>
       </div>
     )
   }
 }
-
 export default App;

@@ -1,21 +1,20 @@
 import React from 'react';
 
 class TodoList extends React.Component{
-  handleChange(i){
+  handleChange(id){
     // alert(i)
-    this.props.handleCompleted(i);
+    this.props.handleCompleted(id);
   }
-  handleDel(i){
-    this.props.handleDel(i);
-    console.log(i);
+  handleDel(id){
+    this.props.handleDel(id);
   }
   render(){
 
-    let list = this.props.items.map( (item,index) =>
-      <div key={Math.random()}>
-         <input type="radio" checked={item.completed} onChange={this.handleChange.bind(this,index)}/>
-         <span style={item.completed ? {textDecoration:'line-through',opacity:'0.6'} : null}>{item.title}</span>
-         <button onClick={this.handleDel.bind(this,index)}>×</button>
+    let list = this.props.items.map( item =>
+      <div key={Math.random()} className='item'>
+         <input type="radio" checked={item.completed} onChange={this.handleChange.bind(this,item.id)}/>
+         <span className="title" style={item.completed ? {textDecoration:'line-through',opacity:'0.6'} : null}>{item.title}</span>
+         <button className="itembtn" onClick={this.handleDel.bind(this,item.id)}>×</button>
        </div>
     )
     return(

@@ -1,0 +1,8 @@
+*{ margin: 0; padding: 0; box-sizing: border-box}
+.main{ width: 100%; max-width: 600px; margin: 0 auto; padding: 10px;}
+.main h3{ text-align: center; color: #00bcd4; font-size: 4em;}
+.main .add{ border:none; width: 70%; padding: 10px 20px; box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px; font-size: 26px; color: #212121; margin-right: 10px;}
+.main .addbtn{padding: 10px 20px;font-size: 24px; border:none; background-color: #00bcd4;box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px; color: #fff;}
+.item{display: flex;padding-right: 6%;flex-direction: row;justify-content: space-between;align-items: center;margin: 5px 0;}
+.title{flex-grow:2;margin-left: 20px;}
+.itembtn{width: 25px; height: 25px;font-size: 20px; border:1px solid #999; border-radius: 50%; }

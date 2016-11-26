@@ -35,16 +35,35 @@ class App extends React.Component{
     this.setState({items:this.state.items})
 
   }
+  //标记完成
+  handleCompleted(i){
+    // alert('我是父组件')
+    // console.log(i);
+    this.state.items[i].completed=!this.state.items[i].completed;
+    this.setState({
+      items:this.state.items
+    })
+  }
+  //删除一条
+  handleDel(i){
+    // alert('我是父组件')
+    console.log(i);
+    this.state.items.splice(i,1)
+    this.setState({
+      items:this.state.items
+    })
+  }
+
   render(){
     return(
       <div>
           <h3>TODO</h3>
-          <TodoList items={this.state.items}/>
+          <TodoList items={this.state.items} handleCompleted={this.handleCompleted.bind(this)} handleDel={this.handleDel.bind(this)}/>
           {/* <input type="text" placeholder="add a todo" ref="input" />
           <button onClick={this.handleClick.bind(this)}>Add #{this.state.items.length+1}</button> */}
 
 
-          <form onSubmit={this.handleSubmit.bind(this)}>
+          <form onSubmit={this.handleSubmit.bind(this)} >
             <input type="text" placeholder="add a todo" ref="input" />
             <button>Add #{this.state.items.length+1}</button>
           </form>

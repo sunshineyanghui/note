@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ajax</title>
+</head>
+<body>
+  <h1>ajax demo</h1>
+  <button type="button" id="btn">获取我的github信息</button>
+  <p id="info"></p>
+  <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+  <script>
+  //兼容ie5/ie6
+  // var xmlhttp;
+  // if (window.XMLHttpRequest)
+  //   {// code for IE7+, Firefox, Chrome, Opera, Safari
+  //   xmlhttp=new XMLHttpRequest();
+  //   }
+  // else
+  //   {// code for IE6, IE5
+  //   xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  //   }
+    //原生
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange=function(){
+      if (xmlhttp.readyState==4 && xmlhttp.status==200){
+        // console.log(xmlhttp.responseText)
+        var resobg = JSON.parse(xmlhttp.responseText).posts;
+        // for (var i = 0; i < resobg.length; i++) {
+        //   console.log(resobg[i].content);
+        // }
+      }    
+    }
+    xmlhttp.open("GET","http://digitalcity.duopingshidai.com/",true);
+    xmlhttp.setRequestHeader("Content-type","application/json");
+    var obg = {phoneNumber:'11112222233'};
+    var jsonobg = JSON.stringify(obg);
+    xmlhttp.send(jsonobg);
+    console.log('我先出来');
+
+
+    //jq
+      // var obg = {phoneNumber:'1234567890'};
+      // var jsonobg = JSON.stringify(obg);
+      // jQuery.ajax({
+      //   type:'POST',
+      //   data:jsonobg,
+      //   contentType:'application/json',
+      //   url:'http://digitalcity.duopingshidai.com/',
+      //   success:function(res,status){
+      //     console.log(res,status);
+      //   },
+      //   error:function(xml,msg){
+      //     console.log(xml.status,msg)
+      //   }
+      // })
+
+
+
+  </script>
+
+</body>
+</html>

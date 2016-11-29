@@ -1,14 +1,13 @@
 import React from 'react';
 
-class Header extends React.Component{
+class Contact extends React.Component{
   render(){
-
     return(
       <div>
-        Header
+        Contact
       </div>
     )
   }
 }
 
-export default Header;
+export default Contact;

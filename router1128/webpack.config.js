@@ -16,7 +16,7 @@ module.exports = {
   devServer: {
     // publicPath: "/build/",
     stats: { colors: true },
-    port: 8080,
+    port: 4000,
     inline: true,
     hot:true
   },

@@ -1,14 +1,14 @@
 import React from 'react';
 
-class Header extends React.Component{
+class Footer extends React.Component{
   render(){
 
     return(
       <div>
-        Header
+        大家好我是footer
       </div>
     )
   }
 }
 
-export default Header;
+export default Footer;

@@ -2,6 +2,7 @@ import React from 'react';
 import jquery from 'jquery';
 import axios from 'axios';
 import GitShow from './GitShow';
+import superagent from 'superagent';
 class App extends React.Component{
   constructor(){
     super();
@@ -10,8 +11,8 @@ class App extends React.Component{
       wait:true
     }
   }
-  componentDidMount(){
-    var _this = this;
+  //componentDidMount(){
+  //  var _this = this;
     //1.原生
     // var request = new XMLHttpRequest();
     // //监听state变化
@@ -39,7 +40,7 @@ class App extends React.Component{
     // })
 
 
-  }
+  //}
   handleSubmit(e){
     e.preventDefault();
     let value = this.refs.input.value;
@@ -50,16 +51,16 @@ class App extends React.Component{
   }
 
   //superagent
-  // componentDidMount(){
-  //   superagent
-  //   .get('https://api.github.com/users/sunshineyanghui')
-  //   .end(function(err, res){
-  //    if(err) return console.log(err);
-  //      if (res) {
-  //      console.log(res)        
-  //      }
-  //   });
-  // }
+  componentDidMount(){
+    superagent
+    .get('http://api.duopingshidai.com/api/posts')
+    .end(function(err, res){
+     if(err) return console.log(err);
+       if (res) {
+       console.log(res)
+       }
+    });
+  }
   render(){
     return(
       // <div>

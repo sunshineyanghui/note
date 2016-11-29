@@ -1,31 +1,20 @@
-//开发时的配置文件,主要服务于 webpack-dev-sever
+//打包时的配置文件
 var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
 
   entry: [
-    'webpack/hot/dev-server',
     path.resolve(__dirname, './src/index.js')
   ],
   output: {
       path: path.resolve(__dirname, 'build'),
       filename: 'bundle.js',
-      publicPath: "/build/"
+      publicPath: "./build/"
   },
-  devServer: {
-    // publicPath: "/build/",
-    stats: { colors: true },
-    port: 8080,
-    inline: true,
-    hot:true
-  },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-  ],
   devtool: 'eval',
   resolve: {
-    extensions: ["", ".js", ".jsx", ".css"],
+    extensions: ["", ".js", ".jsx"],
   },
   module: {
   loaders: [

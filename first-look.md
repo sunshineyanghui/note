@@ -143,7 +143,7 @@ app.get('/', function(){
 
 上面代码中 `get('/')` 这是什么？
 
-- get 是一个 http 请求的**动词** ，类似的还有 post/delete/put 。
+- get 是一个 http 请求的 **动词** ，类似的还有 post/delete/put 。
 - `/` 是一个**路径** ，英文 path
 
 一个动词加一个路径，这样就组成一个 **HTTP 请求** ，公式如下

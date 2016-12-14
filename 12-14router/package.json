@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": " ./node_modules/.bin/webpack"
+    "build": " ./node_modules/.bin/webpack -w",
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
@@ -19,6 +20,7 @@
     "webpack": "^1.13.1"
   },
   "dependencies": {
+    "express": "^4.14.0",
     "react-router": "^3.0.0"
   }
 }
